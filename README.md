@@ -8,7 +8,7 @@ Capture the finishing times of a sports competition. Scaffolded by ChatGPT.
 * Table showing captured times with comments
 * LocalStorage support to persist captured finishers
 
-![Screenshot](screenshot.png | width=100)
+<img alt="Screenshot" src="screenshot.png" style="width:250;border:1px solid black"></img>
 
 ## Prompts
 
@@ -72,7 +72,7 @@ Ideally, separate artifacts for the overlays into separate files.
 
 #### Result
 The [resulting code](https://github.com/paulroho/finishers/commit/ec944867e5ebe3d3ad66542c13c51799a0506588) is broken as the overlay screens are visible from the very beginning covering the start screen:
-![Broken app because of initially visible overlay](p3_broken.png | width=100)
+<img alt="Broken app because of initially visible overlay" src="p3_broken.png" style="width:250;border:1px solid black"></img>
 
 ### Prompt #4: Asking To Fix The Issue
 ```
