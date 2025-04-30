@@ -118,6 +118,7 @@ stopInput.addEventListener('input', () => {
 
 confirmStopButton.addEventListener('click', () => {
   clearInterval(timerInterval);
+timerInterval = null;
   localStorage.removeItem('startTime');
   captureButton.disabled = true;
   stopButton.disabled = true;

@@ -118,3 +118,7 @@ Yes! Please, add a button "New Race" that
 
 [The result](https://github.com/paulroho/finishers/commit/c98f17f6c3f8fe5b43eaeb730b3ef1a9acb8825a) works basically fine. The check if a new race can be started (just if the timer is not running) is done in the event handler of the "New Race" button. This is nice and safe, but displaying the button as disabled is not consistently working.
 
+### Manual Fix: Inconsistent Timer Reset
+While playing around I noticed that the field `timerInterval` was not reset to `null` after `clearInterval(timerInterval)` was called. Therefore, even after the timer was stopped, a new race could not be started.
+
+This small manual change fixed it.
