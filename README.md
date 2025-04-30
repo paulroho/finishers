@@ -14,7 +14,7 @@ Capture the finishing times of a sports competition. Scaffolded by ChatGPT.
 
 The code started out by prompting the free version of ChatGPT.
 
-### Initial Prompt: The Requirements
+### Prompt #1: First Prompt - The Initial Requirements
 
 ```
 Scaffold a simple HTML/CSS/Javascript based mobile app to capture finishers of a sports competition.
@@ -32,8 +32,59 @@ Scaffold a simple HTML/CSS/Javascript based mobile app to capture finishers of a
 No frameworks or libraries
 ```
 
-### Refinement: Splitting Into Multiple Files
+### Prompt #2: Refinement - Splitting Into Multiple Files
 ```
 Please split HTML/CSS/JavaScript into separate files. Thank you.
 ```
-The result can be seen in the [initial commit](https://github.com/paulroho/finishers/commit/47c9ff41e42e553587a634bdadee31decd3ad387).
+
+#### Result
+The result is pretty nice and simple and seems to be fully functional. It can be seen in the [initial commit](https://github.com/paulroho/finishers/commit/47c9ff41e42e553587a634bdadee31decd3ad387).
+
+
+### Prompt #3: Adding Features: Stopping and Data Display
+
+```
+Nice!
+
+Now we need to add these additional features, please:
+* Button "Stop":
+  * Adds overlay:
+    * full-screen
+    * translucent
+    * Textbox "Type 'STOP'"
+    * Button "Stop it!"
+      * Enabled just if "STOP" has been typed into the textbox
+      * Located at the bottom of the page
+      * Background color red
+      * Stops the timer
+      * Disables button "Capture"
+      * Hides the overlay
+    * Icon on the top right to go back to the main screen
+  * Button "Show data"
+    * Displays stored data
+      * in a simple CSV format
+      * using a monospace font
+      * full screen
+    * Icon on the top right to go back to the main screen
+
+Ideally, separate artifacts for the overlays into separate files.
+```
+
+#### Result
+The [resulting code](https://github.com/paulroho/finishers/commit/ec944867e5ebe3d3ad66542c13c51799a0506588) is broken as the overlay screens are visible from the very beginning covering the start screen:
+![Broken app because of initially visible overlay](p3_broken.png)
+
+### Prompt #4: Asking To Fix The Issue
+```
+Please make sure that the two overlays are invisible at startup, because otherwise the main page cannot be seen.
+```
+#### Result
+ChatGPT just highlighted the important parts in markup and CSS. But as this code was already there exactly like pointed out, this was of no help.
+
+#### Analysis
+The real problem was that the ChatGPT did not catch that the overlays had the rule `display:flex` in place which is more specific than the initial `display: hidden` via `class="hidden"` useless.
+
+#### Fix
+As a quick fix, I manually added `!important` to the CSS rule for the class `hidden`. That made the application usable again.
+
+The result is now usable, but the next flaws get apparent.
