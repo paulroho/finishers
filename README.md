@@ -139,4 +139,4 @@ stateDiagram-v2
   Stopped --> ReadyForNewRace: New Race
 ```
 
-To get this work, I did some manual changes, because I thought it would be too cumbersome to explain to ChatGPT what I want.
+To get this work, I did some [manual changes](https://github.com/paulroho/finishers/commit/cb9c8f1815ecd0cd478eb179ceb12297fbc3ca9e), because I thought it would be too cumbersome to explain to ChatGPT what I want.
