@@ -121,4 +121,22 @@ Yes! Please, add a button "New Race" that
 ### Manual Fix: Inconsistent Timer Reset
 While playing around I noticed that the field `timerInterval` was not reset to `null` after `clearInterval(timerInterval)` was called. Therefore, even after the timer was stopped, a new race could not be started.
 
-This small manual change fixed it.
+This small [manual change](https://github.com/paulroho/finishers/commit/e3948b247af0e788ffdd01529e1eb207610fe243) fixed it.
+
+### Manual Fix Of Button States
+As the enabled/disabled state of the buttons is not perfect in all cases, I wrote this little state diagram to get that straight:
+
+```mermaid
+stateDiagram-v2
+  [*] --> ReadyForNewRace
+  ReadyForNewRace --> Running: Start
+  [*] --> Running: IF a start time is saved
+  Running --> Capturing: Capture
+  Capturing --> Running
+  Running --> InStopDialog: Stop
+  InStopDialog --> Running: X
+  InStopDialog --> Stopped: Stop it!
+  Stopped --> ReadyForNewRace: New Race
+```
+
+To get this work, I did some manual changes, because I thought it would be too cumbersome to explain to ChatGPT what I want.

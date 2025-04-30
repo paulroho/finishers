@@ -33,16 +33,6 @@ function saveToLocalStorage() {
   localStorage.setItem('finishers', JSON.stringify(finishers));
 }
 
-function loadFromLocalStorage() {
-  const data = localStorage.getItem('finishers');
-  if (data) {
-    finishers = JSON.parse(data);
-    finishers.forEach((entry, index) => {
-      addRow(index + 1, entry.time, entry.comment);
-    });
-  }
-}
-
 function addRow(number, time, comment = '') {
   const row = document.createElement('tr');
 
@@ -77,6 +67,7 @@ startButton.addEventListener('click', () => {
   startButton.disabled = true;
   captureButton.disabled = false;
   stopButton.disabled = false;
+  newRaceButton.disabled = true;
 });
 
 captureButton.addEventListener('click', () => {
@@ -90,7 +81,10 @@ captureButton.addEventListener('click', () => {
 });
 
 newRaceButton.addEventListener('click', () => {
-  if (timerInterval) return; // Safety: only allow when timer is stopped
+  if (timerInterval) {
+    console.log('Will not reset - timer is running');
+    return; // Safety: only allow when timer is stopped
+  }
 
   finishers = [];
   localStorage.removeItem('finishers');
@@ -118,10 +112,11 @@ stopInput.addEventListener('input', () => {
 
 confirmStopButton.addEventListener('click', () => {
   clearInterval(timerInterval);
-timerInterval = null;
+  timerInterval = null;
   localStorage.removeItem('startTime');
   captureButton.disabled = true;
   stopButton.disabled = true;
+  startButton.disabled = true;
   newRaceButton.disabled = false;
   stopOverlay.classList.add('hidden');
 });
@@ -144,18 +139,24 @@ function closeDataOverlay() {
 }
 
 // INIT
-loadFromLocalStorage();
+const savedData = localStorage.getItem('finishers');
+const savedStart = localStorage.getItem('startTime');
+
+if (savedData) {
+  finishers = JSON.parse(savedData);
+  finishers.forEach((entry, index) => {
+    addRow(index + 1, entry.time, entry.comment);
+  });
+}
 
 // Restore timer state if previously started
-const savedStart = localStorage.getItem('startTime');
 if (savedStart) {
   startTime = parseInt(savedStart, 10);
   timerInterval = setInterval(updateTimer, 1000);
   startButton.disabled = true;
   captureButton.disabled = false;
   stopButton.disabled = false;
-  newRaceButton.disabled = true;
   updateTimer();
-} else {
-  newRaceButton.disabled = false;
 }
+
+newRaceButton.disabled = savedStart || !savedData;
