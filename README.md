@@ -89,3 +89,14 @@ As a quick fix, I [manually added](https://github.com/paulroho/finishers/commit/
 
 The result is now usable, but the next flaws get apparent.
 
+### Prompt #5: Issue Lost Run Mode After Reload
+The most dangerous issue was that a restart of the page while the timer is running would stop the timer making it impossible to get correct times.
+
+So I tried this prompt:
+```
+Important change to resume to running mode if the site gets refreshed:
+* Write the start time to local storage
+* On load, if a start time exists in local storage, automatically go to run mode starting from the saved time
+```
+
+ChatGPT answered with simple changes to the event handlers of the start and the stop button and a function to reload the saved start time on page load.

@@ -71,6 +71,7 @@ function addRow(number, time, comment = '') {
 // TIMER CONTROL
 startButton.addEventListener('click', () => {
   startTime = Date.now();
+  localStorage.setItem('startTime', startTime.toString());
   timerInterval = setInterval(updateTimer, 1000);
   startButton.disabled = true;
   captureButton.disabled = false;
@@ -100,7 +101,9 @@ stopInput.addEventListener('input', () => {
 
 confirmStopButton.addEventListener('click', () => {
   clearInterval(timerInterval);
+  localStorage.removeItem('startTime');
   captureButton.disabled = true;
+  stopButton.disabled = true;
   stopOverlay.classList.add('hidden');
 });
 
@@ -123,3 +126,14 @@ function closeDataOverlay() {
 
 // INIT
 loadFromLocalStorage();
+
+// Restore timer state if previously started
+const savedStart = localStorage.getItem('startTime');
+if (savedStart) {
+  startTime = parseInt(savedStart, 10);
+  timerInterval = setInterval(updateTimer, 1000);
+  startButton.disabled = true;
+  captureButton.disabled = false;
+  stopButton.disabled = false;
+  updateTimer();
+}
