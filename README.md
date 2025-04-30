@@ -104,3 +104,16 @@ ChatGPT answered with [simple changes](https://github.com/paulroho/finishers/com
 
 At the end of the answer, ChatGPT also anticipated my next planned feature request as optional feature:
 ![Nice suggestion at the end of the answer](p5_suggestion.png)
+
+### Prompt #6: Adding Feature: New Race
+Following up on the suggestion, I prompted:
+
+```
+Yes! Please, add a button "New Race" that
+* is enabled only if the timer is not running
+* clears all stored data
+```
+
+#### Result
+
+The result works basically fine. The check if a new race can be started (just if the timer is not running) is done in the event handler of the "New Race" button. This is nice and safe, but displaying the button as disabled is not consistently working.

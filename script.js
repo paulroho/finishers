@@ -6,6 +6,7 @@ const startButton = document.getElementById('startButton');
 const captureButton = document.getElementById('captureButton');
 const stopButton = document.getElementById('stopButton');
 const showDataButton = document.getElementById('showDataButton');
+const newRaceButton = document.getElementById('newRaceButton');
 const timerDisplay = document.getElementById('timer');
 const resultsBody = document.getElementById('resultsBody');
 
@@ -88,6 +89,22 @@ captureButton.addEventListener('click', () => {
   saveToLocalStorage();
 });
 
+newRaceButton.addEventListener('click', () => {
+  if (timerInterval) return; // Safety: only allow when timer is stopped
+
+  finishers = [];
+  localStorage.removeItem('finishers');
+  localStorage.removeItem('startTime');
+
+  resultsBody.innerHTML = '';
+  timerDisplay.textContent = '00:00';
+
+  startButton.disabled = false;
+  captureButton.disabled = true;
+  stopButton.disabled = true;
+  newRaceButton.disabled = true;
+});
+
 // STOP OVERLAY
 stopButton.addEventListener('click', () => {
   stopOverlay.classList.remove('hidden');
@@ -104,6 +121,7 @@ confirmStopButton.addEventListener('click', () => {
   localStorage.removeItem('startTime');
   captureButton.disabled = true;
   stopButton.disabled = true;
+  newRaceButton.disabled = false;
   stopOverlay.classList.add('hidden');
 });
 
@@ -135,5 +153,8 @@ if (savedStart) {
   startButton.disabled = true;
   captureButton.disabled = false;
   stopButton.disabled = false;
+  newRaceButton.disabled = true;
   updateTimer();
+} else {
+  newRaceButton.disabled = false;
 }
