@@ -85,6 +85,7 @@ ChatGPT just highlighted the important parts in markup and CSS. But as this code
 The real problem was that the ChatGPT did not catch that the overlays had the rule `display:flex` in place which is more specific than the initial `display: hidden` via `class="hidden"` useless.
 
 #### Fix
-As a quick fix, I manually added `!important` to the CSS rule for the class `hidden`. That made the application usable again.
+As a quick fix, I [manually added](https://github.com/paulroho/finishers/commit/377bf11160f35e9c587a27090d01e2bd5120adb7) `!important` to the CSS rule for the class `hidden`. That made the application usable again.
 
 The result is now usable, but the next flaws get apparent.
+
