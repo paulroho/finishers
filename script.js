@@ -4,8 +4,16 @@ let finishers = [];
 
 const startButton = document.getElementById('startButton');
 const captureButton = document.getElementById('captureButton');
+const stopButton = document.getElementById('stopButton');
+const showDataButton = document.getElementById('showDataButton');
 const timerDisplay = document.getElementById('timer');
 const resultsBody = document.getElementById('resultsBody');
+
+const stopOverlay = document.getElementById('stopOverlay');
+const dataOverlay = document.getElementById('dataOverlay');
+const stopInput = document.getElementById('stopInput');
+const confirmStopButton = document.getElementById('confirmStopButton');
+const csvData = document.getElementById('csvData');
 
 function formatTime(ms) {
   const totalSeconds = Math.floor(ms / 1000);
@@ -60,11 +68,13 @@ function addRow(number, time, comment = '') {
   resultsBody.appendChild(row);
 }
 
+// TIMER CONTROL
 startButton.addEventListener('click', () => {
   startTime = Date.now();
   timerInterval = setInterval(updateTimer, 1000);
   startButton.disabled = true;
   captureButton.disabled = false;
+  stopButton.disabled = false;
 });
 
 captureButton.addEventListener('click', () => {
@@ -77,5 +87,39 @@ captureButton.addEventListener('click', () => {
   saveToLocalStorage();
 });
 
-// Initialize
+// STOP OVERLAY
+stopButton.addEventListener('click', () => {
+  stopOverlay.classList.remove('hidden');
+  stopInput.value = '';
+  confirmStopButton.disabled = true;
+});
+
+stopInput.addEventListener('input', () => {
+  confirmStopButton.disabled = (stopInput.value !== 'STOP');
+});
+
+confirmStopButton.addEventListener('click', () => {
+  clearInterval(timerInterval);
+  captureButton.disabled = true;
+  stopOverlay.classList.add('hidden');
+});
+
+function closeStopOverlay() {
+  stopOverlay.classList.add('hidden');
+}
+
+// SHOW DATA
+showDataButton.addEventListener('click', () => {
+  const lines = finishers.map((f, i) =>
+    `${i + 1},"${f.time}","${(f.comment || '').replace(/"/g, '""')}"`
+  );
+  csvData.textContent = "No.,Time,Comment\n" + lines.join('\n');
+  dataOverlay.classList.remove('hidden');
+});
+
+function closeDataOverlay() {
+  dataOverlay.classList.add('hidden');
+}
+
+// INIT
 loadFromLocalStorage();

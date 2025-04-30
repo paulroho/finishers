@@ -1,0 +1,55 @@
+#stopOverlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #stopOverlay .overlay-content {
+    background: white;
+    padding: 2em;
+    border-radius: 10px;
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+  }
+  
+  #stopOverlay input {
+    font-size: 1.2em;
+    padding: 0.5em;
+    width: 100%;
+    margin: 1em 0;
+  }
+  
+  #confirmStopButton {
+    background: red;
+    color: white;
+    font-size: 1.2em;
+    padding: 0.5em 2em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    position: absolute;
+    bottom: 2em;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  .close-btn {
+    position: absolute;
+    top: 1em;
+    right: 1em;
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    cursor: pointer;
+  }
+  
