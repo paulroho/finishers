@@ -116,4 +116,5 @@ Yes! Please, add a button "New Race" that
 
 #### Result
 
-The result works basically fine. The check if a new race can be started (just if the timer is not running) is done in the event handler of the "New Race" button. This is nice and safe, but displaying the button as disabled is not consistently working.
+[The result](https://github.com/paulroho/finishers/commit/c98f17f6c3f8fe5b43eaeb730b3ef1a9acb8825a) works basically fine. The check if a new race can be started (just if the timer is not running) is done in the event handler of the "New Race" button. This is nice and safe, but displaying the button as disabled is not consistently working.
+
