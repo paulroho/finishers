@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Finish Line Capture</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <h1>Race Timer</h1>
+
+  <div class="timer" id="timer">00:00</div>
+
+  <div class="buttons">
+    <button id="startButton">Start</button>
+    <button id="captureButton" disabled>Capture</button>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Time</th>
+        <th>Comment</th>
+      </tr>
+    </thead>
+    <tbody id="resultsBody">
+      <!-- Captured times go here -->
+    </tbody>
+  </table>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
