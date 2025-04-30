@@ -123,12 +123,12 @@ While playing around I noticed that the field `timerInterval` was not reset to `
 
 This small [manual change](https://github.com/paulroho/finishers/commit/e3948b247af0e788ffdd01529e1eb207610fe243) fixed it.
 
-### Manual Fix Of Button States
+### Manual Fix: Button States
 As the enabled/disabled state of the buttons is not perfect in all cases, I wrote this little state diagram to get that straight:
 
 ```mermaid
 stateDiagram-v2
-  [*] --> ReadyForNewRace
+  [*] --> ReadyForNewRace: IF no data is saved
   ReadyForNewRace --> Running: Start
   [*] --> Running: IF a start time is saved
   Running --> Capturing: Capture
@@ -140,3 +140,7 @@ stateDiagram-v2
 ```
 
 To get this work, I did some [manual changes](https://github.com/paulroho/finishers/commit/cb9c8f1815ecd0cd478eb179ceb12297fbc3ca9e), because I thought it would be too cumbersome to explain to ChatGPT what I want.
+
+
+### Manual Fix: No Start After Reload If Data Exists
+I noticed that after a reload of the page, the Start button was available even if data was already captured. [The fix](https://github.com/paulroho/finishers/commit/c96502748c9ea672f11db73a73b1b748dc438110) was easy.
