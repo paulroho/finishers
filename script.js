@@ -153,10 +153,10 @@ if (savedData) {
 if (savedStart) {
   startTime = parseInt(savedStart, 10);
   timerInterval = setInterval(updateTimer, 1000);
-  startButton.disabled = true;
   captureButton.disabled = false;
   stopButton.disabled = false;
   updateTimer();
 }
 
+startButton.disabled = savedStart || savedData;
 newRaceButton.disabled = savedStart || !savedData;
