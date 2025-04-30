@@ -99,4 +99,8 @@ Important change to resume to running mode if the site gets refreshed:
 * On load, if a start time exists in local storage, automatically go to run mode starting from the saved time
 ```
 
+#### Result
 ChatGPT answered with [simple changes](https://github.com/paulroho/finishers/commit/02e480f797adadf260dce132ea136a81ca1ac4a2) to the event handlers of the start and the stop button and a function to reload the saved start time on page load.
+
+At the end of the answer, ChatGPT also anticipated my next planned feature request as optional feature:
+![Nice suggestion at the end of the answer](p5_suggestion)
