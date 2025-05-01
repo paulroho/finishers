@@ -190,5 +190,6 @@ On my iPhone, the buttons are a little bit small and their text is blue which is
 #### Result
 The result was an updated style sheet for the `<button>` tag, including the disabled version.
 
-In addition, I played with the background colors of the several buttons (also that was a suggestion by ChatGPT) to support the criticality of their behaviour. The final version looks as expected both on the desktop browser's mobile view as on the actual device:
+In addition, I played with the background colors of the several buttons (also that was a suggestion by ChatGPT) to support the criticality of their behaviour. The [final version](https://github.com/paulroho/finishers/commit/33ce1300edec0f37f9cfaf0ea326d0d1cd2e1069) looks as expected both on the desktop browser's mobile view as on the actual device:
 ![Styled Buttons on Desktop in Mobile View](styled_buttons_on_desktop.png)
+![Styled Buttons on iPhone](styled_buttons_on_iPhone.png)
