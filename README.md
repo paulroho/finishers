@@ -173,6 +173,6 @@ Make sure the sticky footer does not cover lower rows of the table.
 The suggestion was that simple:
 ![Suggestion to add bottom padding to <body> tag](suggestion-add-bottom-padding-to-body.png)
 
-I must admit, I did not expect with the `position: fixed` of the footer, a `margin` of the `<body>` tag would not matter. But it worked (after taking a little bigger padding at the bottom of the body than what ChatGPT suggested):
+I must admit, I did not expect with the `position: fixed` of the footer, that a `margin` of the `<body>` tag would not matter. But [it](https://github.com/paulroho/finishers/commit/ef94936426486840a61833092035092850ab39d4) worked (after taking a little bigger padding at the bottom of the body than what ChatGPT suggested):
 
 ![last table row visible](p8_footerdoesnothideanymore.png)
