@@ -23,11 +23,23 @@ body {
   }
   
   button {
-    font-size: 1.2em;
-    padding: 0.5em 1.2em;
-    margin: 0.5em;
+    font-size: 1.1em;
+    padding: 0.8em 1.5em;
+    border: none;
+    border-radius: 6px;
+    background-color: #559;
+    color: white;
+    cursor: pointer;
+    -webkit-appearance: none; /* remove iOS blue text */
+    appearance: none;
   }
   
+  button:disabled {
+    background-color: #999;
+    color: #eee;
+    cursor: default;
+  }
+    
   table {
     width: 100%;
     border-collapse: collapse;
@@ -61,4 +73,11 @@ body {
   input[type="text"] {
     width: 90%;
   }
-  
+
+  #startButton:not(:disabled), #captureButton:not(:disabled) {
+    background-color: #0a0;
+  }
+
+  #stopButton:not(:disabled), #newRaceButton:not(:disabled) {
+    background-color: #c00;
+  }

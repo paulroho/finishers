@@ -176,3 +176,19 @@ The suggestion was that simple:
 I must admit, I did not expect with the `position: fixed` of the footer, that a `margin` of the `<body>` tag would not matter. But [it](https://github.com/paulroho/finishers/commit/ef94936426486840a61833092035092850ab39d4) worked (after taking a little bigger padding at the bottom of the body than what ChatGPT suggested):
 
 ![last table row visible](p8_footerdoesnothideanymore.png)
+
+
+### Prompt #9: Styling Buttons For Better Usability On Iphone
+While the buttons already looked fine on the desktop browser version I used for development, they were pretty small and not good to read on my iPhone:
+![small buttons on iPhone](small_buttons_on_iPhone.png)
+
+So I prompted once more:
+```
+On my iPhone, the buttons are a little bit small and their text is blue which is hard to see.
+```
+
+#### Result
+The result was an updated style sheet for the `<button>` tag, including the disabled version.
+
+In addition, I played with the background colors of the several buttons (also that was a suggestion by ChatGPT) to support the criticality of their behaviour. The final version looks as expected both on the desktop browser's mobile view as on the actual device:
+![Styled Buttons on Desktop in Mobile View](styled_buttons_on_desktop.png)
