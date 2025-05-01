@@ -155,9 +155,24 @@ Move the buttons "Stop", "Show Data", and "New Race" to the very bottom of the p
 ```
 
 #### Result
-Design-wise the solution was pretty nice:
+Design-wise [the solution](https://github.com/paulroho/finishers/commit/f847623bab2fcf7e3569270d6b90653944fbca27) was pretty nice:
 ![Footer added](p7_withfooter.png)
 
 Interestingly, the last scentence of my prompt got disregarded, because for many captured times, the buttons at the bottom do not get pushed, but remain sticky at the bottom. This has the problem that the last item of the table is hidden behind the footer:
 ![Footer hiding last table items](p7_footerhidingtable.png)
 In this example I had 11 items in total, but the page could not be stably scrolled to uncover that last row.
+
+
+### Prompt #8: Uncovering The Whole Table
+I first thought, that could be tough, maybe wrapping the whole page in a flex grid, but with that prompt ChatGPT showed that a one-liner was sufficient:
+
+```
+Make sure the sticky footer does not cover lower rows of the table.
+```
+
+The suggestion was that simple:
+![Suggestion to add bottom padding to <body> tag](suggestion-add-bottom-padding-to-body.png)
+
+I must admit, I did not expect with the `position: fixed` of the footer, a `margin` of the `<body>` tag would not matter. But it worked (after taking a little bigger padding at the bottom of the body than what ChatGPT suggested):
+
+![last table row visible](p8_footerdoesnothideanymore.png)

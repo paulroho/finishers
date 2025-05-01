@@ -1,6 +1,7 @@
 body {
     font-family: sans-serif;
     padding: 1em;
+    padding-bottom: 5em; /* reserve space so the footer doesn't overlap content */
     max-width: 600px;
     margin: auto;
     background-color: #f0f0f0;
