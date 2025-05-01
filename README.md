@@ -10,7 +10,7 @@ Capture the finishing times of a sports competition. Scaffolded by ChatGPT.
 
 <img alt="Screenshot" src="screenshot.png" style="width:250;border:1px solid black"></img>
 
-## Prompts
+## Prompts And Manual Changes
 
 The code started out by prompting the free version of ChatGPT.
 
@@ -144,3 +144,20 @@ To get this work, I did some [manual changes](https://github.com/paulroho/finish
 
 ### Manual Fix: No Start After Reload If Data Exists
 I noticed that after a reload of the page, the Start button was available even if data was already captured. [The fix](https://github.com/paulroho/finishers/commit/c96502748c9ea672f11db73a73b1b748dc438110) was easy.
+
+
+### Prompt #7: Put Minor Buttons To A Footer
+I now wanted to just have the two major buttons "Start" and "Capture" at the upper parts of the page, and move the minor buttons "Stop", "Show Data", and "New Race" to the footer.
+
+This was the prompt:
+```
+Move the buttons "Stop", "Show Data", and "New Race" to the very bottom of the page. In case the table gets very long, they could be pushed below the fold.
+```
+
+#### Result
+Design-wise the solution was pretty nice:
+![Footer added](p7_withfooter.png)
+
+Interestingly, the last scentence of my prompt got disregarded, because for many captured times, the buttons at the bottom do not get pushed, but remain sticky at the bottom. This has the problem that the last item of the table is hidden behind the footer:
+![Footer hiding last table items](p7_footerhidingtable.png)
+In this example I had 11 items in total, but the page could not be stably scrolled to uncover that last row.

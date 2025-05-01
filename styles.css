@@ -16,7 +16,7 @@ body {
     margin: 1em 0;
   }
   
-  .buttons {
+  .run-buttons {
     text-align: center;
     margin-bottom: 1em;
   }
@@ -39,6 +39,24 @@ body {
     text-align: center;
   }
   
+  .footer-controls {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #f0f0f0;
+    padding: 0.5em;
+    display: flex;
+    justify-content: space-around;
+    border-top: 1px solid #ccc;
+    z-index: 100;
+  }
+  
+  .footer-controls button {
+    padding: 0.5em 1.2em;
+    font-size: 1em;
+  }
+
   input[type="text"] {
     width: 90%;
   }

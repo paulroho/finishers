@@ -14,14 +14,11 @@
 
   <div class="timer" id="timer">00:00</div>
 
-  <div class="buttons">
+  <div class="run-buttons">
     <button id="startButton">Start</button>
     <button id="captureButton" disabled>Capture</button>
-    <button id="stopButton" disabled>Stop</button>
-    <button id="showDataButton">Show Data</button>
-    <button id="newRaceButton" disabled>New Race</button>
   </div>
-
+  
   <table>
     <thead>
       <tr>
@@ -32,6 +29,12 @@
     </thead>
     <tbody id="resultsBody"></tbody>
   </table>
+
+  <div class="footer-controls">
+    <button id="stopButton" disabled>Stop</button>
+    <button id="showDataButton">Show Data</button>
+    <button id="newRaceButton" disabled>New Race</button>
+  </div>
 
   <!-- Stop Confirmation Overlay -->
   <div id="stopOverlay" class="overlay hidden">
